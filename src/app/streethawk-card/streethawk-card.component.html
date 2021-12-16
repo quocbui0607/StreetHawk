@@ -1,0 +1,37 @@
+<div
+  *ngIf="cardObjects.length"
+  class="d-flex flex-column align-items-center mt-5"
+>
+  <div *ngFor="let cardObj of cardObjects">
+    <mat-card class="px-0 mt-2">
+      <mat-card-header class="d-flex justify-content-center mb-2">
+        <div mat-card-avatar class="avatar">
+          <span class="mr-2">
+            <img [src]="cardObj.icon" class="img-fluid" />
+          </span>
+        </div>
+
+        <mat-card-title class="mb-0 font-weight-normal"
+          >Textbox limited to {{ cardObj.length }} characters</mat-card-title
+        >
+        <button class="btn p-0 ml-2"><i class="fas fa-ellipsis-h"></i></button>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <img src="../../assets/images/body.png" class="img-fluid" />
+      </mat-card-content>
+      <mat-card-footer
+        class="px-3 mx-0 mb-2 d-flex align-items-center justify-content-between"
+      >
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="material-icons"> assessment </span>
+          <p class="mb-0 ml-3">Expire Date: {{ cardObj.expireDate }}</p>
+        </div>
+
+        <label class="switch mb-0">
+          <input type="checkbox" />
+          <span class="slider round" [ngClass]="[cardObj.color]"></span>
+        </label>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
